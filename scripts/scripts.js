@@ -36,7 +36,7 @@ function recalculate() {
     if (modelName == "XYZ")
     {totalCost = duration * 100}
     
-    else (modelName == "CPRG")
+    else 
     {totalCost = duration * 213}
 
     costLabel.innerHTML = totalCost.toFixed(2);
@@ -94,17 +94,18 @@ modelButton.addEventListener("click", changeModel);
 var changeDurationBtn = document.getElementById("duration-button");
 
 function changeDuration()  {
-    let durationText = document.getElementById("duration-text");   
-    while (typeof(duration) !== "number") {
-        duration = prompt("Number of days: ");
-        if (isNaN(parseInt(duration)))
+    let durationText = document.getElementById("duration-text");
+    var newDuration;     
+    while (typeof(newDuration) !== "number") {
+        newDuration = prompt("Number of days: ");
+        if (isNaN(parseInt(newDuration)))
         {window.alert("Incorrect Input")}
         else 
-        {duration = parseInt(duration)}   
+        {newDuration = parseInt(newDuration)}   
     }
-    
+    duration = newDuration
     durationText.innerHTML = duration;
-    recalculate();        
-  }
+    recalculate();
+}
 
   changeDurationBtn.addEventListener("click", changeDuration);
